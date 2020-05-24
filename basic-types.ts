@@ -122,10 +122,40 @@ const inifineLoop = (): never => {
 /**
  * @Object
  * type that represents any non-premitive type
+ * here after defining an object if we like to change
+ * it's values we have to stick with the same keys
+ * because without making an object definitions it
+ * happens behind the scenes
  */
 
 let anObject: object = {}
 let aFunction: object = () => {}
+
+let person = {
+  name: 'muhammed',
+  age: 24
+}
+
+// here is the object definition that will happen
+let personDefinition: { name: string; age: number }
+
+// this will give an error
+// person = {college: 'MIT', country: 'USA'}
+
+/**
+ * @Alias
+ * instead of useing the same definition of an object in multiple
+ * places we can use build an alias an reuse it
+ */
+
+type Complex = { entries: number[]; getEntries: (all: number[]) => number[] }
+
+let complexObject: Complex = {
+  entries: [],
+  getEntries: (all: number[]) => {
+    return this.entries
+  }
+}
 
 /**
  * @TypeAssertion
