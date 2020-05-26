@@ -102,8 +102,8 @@ const returnNothing = (): void => {}
  */
 
 let aNumber = 5
-aNumber = null
-aNumber = undefined
+// aNumber = null
+// aNumber = undefined
 
 /**
  * @Never
@@ -142,6 +142,10 @@ let personDefinition: { name: string; age: number }
 // this will give an error
 // person = {college: 'MIT', country: 'USA'}
 
+//====================================================================
+//                            ADDITIONAL
+//====================================================================
+
 /**
  * @Alias
  * instead of useing the same definition of an object in multiple
@@ -158,10 +162,45 @@ let complexObject: Complex = {
 }
 
 /**
- * @TypeAssertion
+ * @type_assertion
  * when you know the type more than the compiler
  */
 
 let someValue: any = 'here is a value'
 let someLength: number = (<string>someValue).length
 someLength = (someValue as string).length
+
+/**
+ * @type_union
+ * if we have a var that might be one of more than one type
+ * we can use | to choose from multiple types (union)
+ */
+
+let notSureVar: number | string | null // this var can be any of those types
+
+/**
+ * @type_checking
+ * when we have a type union or in any other cases we can check the type
+ * of the var by using == 'type' (as a string) ex 'number', 'string'
+ */
+
+function notSureFunction(param: number | string) {
+  if (typeof param == 'number') {
+    console.log(`${param} is a number`)
+  } else if (typeof param == 'string') {
+    console.log(`${param} is a string`)
+  }
+}
+
+/**
+ * @nullable_types
+ * in js any var can be assigned to null is lack of value however
+ * here we can use the flag `strictNullChecks` to true this will
+ * be not allowed any more unless we define a union type
+ */
+
+let notNullable = 20
+// notNullable = null // error if strictNullChecks is on
+
+let nullable: number | null = 20
+nullable = null
