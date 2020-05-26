@@ -1,5 +1,33 @@
 {
   "compilerOptions": {
-    "strictNullChecks": true // null, undefined is not assignable to normal types
+    // the module system for the program
+    "module": "CommonJS",
+
+    // modern browsers support all ES6 features
+    "target": "ES6",
+
+    // sets base directory to resolve non-absolute module names to allow absolute file resolution
+    "baseUrl": "./",
+
+    // null, undefined is not assignable to normal types
+    "strictNullChecks": true,
+
+    // to make the compilation fails if there is an error
+    "noEmitOnError": true,
+
+    // opt-in to every possible improvement as they are built (new problem domain)
+    "strict": true,
+
+    // makes sure no var are inferred to be any to avoid problmes
+    "noImplicitAny": true,
+
+    // makes a ts file that includes the source code in typescript in the browser for debugging
+    "sourceMap": false,
+
+    // to make sure that there is not param that is not used
+    "noUnusedParameters": true,
+
+    // gives warning if there is a provably unreachable code
+    "allowUnreachableCode": false
   }
 }
