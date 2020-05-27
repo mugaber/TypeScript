@@ -156,7 +156,7 @@ type Complex = { entries: number[]; getEntries: (all: number[]) => number[] }
 
 let complexObject: Complex = {
   entries: [],
-  getEntries: function (all: number[]) {
+  getEntries: function () {
     // changed to normal function becasue as an arrow function
     // `this` meant the global this
     return this.entries
